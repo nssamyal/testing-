@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IoT Network Intrusion Detection System</title>
+    <link rel="stylesheet" href="styles.css">
+    >
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>IoT Network Intrusion Detection System</h1>
+        
+        <div class="upload-section">
+            <div class="upload-header">
+                <span class="upload-icon">📤</span> Upload Network Data
+            </div>
+            
+            <div class="upload-content">
+                <p>Select CSV file from UNSW-NB15 dataset</p>
+                <div class="file-input-wrapper">
+                    <input type="text" id="fileNameDisplay" class="file-name-display" readonly value="">
+                    <div class="file-buttons">
+                        <button id="browseBtn" class="browse-btn">Browse...</button>
+                        <input type="file" id="fileInput" accept=".csv" style="display: none;">
+                    </div>
+                </div>
+                <p class="file-info">File should contain network traffic data in UNSW-NB15 format.</p>
+                
+                <button id="analyzeBtn" class="analyze-btn">
+                    <span class="analyze-icon">🔍</span> Analyze Data
+                </button>
+            </div>
+        </div>
+        
+        <div class="results-section" id="resultsSection" style="display: none;">
+            <h2>Analysis Results</h2>
+            
+            <div class="charts-container">
+                <div class="chart-wrapper">
+                    <h3>Binary Classification</h3>
+                    <canvas id="binaryChart"></canvas>
+                    <div id="binaryStats" class="stats-container"></div>
+                </div>
+                
+                <div class="chart-wrapper">
+                    <h3>Multi-class Classification</h3>
+                    <canvas id="multiChart"></canvas>
+                    <div id="multiStats" class="stats-container"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="loadingIndicator" class="loading-indicator" style="display: none;">
+            <div class="spinner"></div>
+            <p>Analyzing network data...</p>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
